@@ -28,4 +28,13 @@ public class TicTacToeShould {
         ticTacToe.place("O", 0,1);
         ticTacToe.place("X", 0,1);
     }
+
+    @Test(expected = PlayerWinsException.class)
+    public void has_a_winner_when_player_places_3_X_in_a_horizontal_row() {
+        ticTacToe.place("X", 0,0);
+        ticTacToe.place("O", 1,0);
+        ticTacToe.place("X", 0,1);
+        ticTacToe.place("O", 2,0);
+        ticTacToe.place("X", 0,2);
+    }
 }
