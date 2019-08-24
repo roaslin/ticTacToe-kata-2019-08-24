@@ -20,17 +20,19 @@ public class TicTactToe {
         this.lastPlaced = player;
         this.board[horizontal][vertical] = player;
 
-        if ("X".equalsIgnoreCase(board[0][0])
-                && "X".equalsIgnoreCase(board[0][1])
-                && "X".equalsIgnoreCase(board[0][2])) {
+        if (isUpperHorizontalWonByPlayer("X")) {
             throw new PlayerWinsException("X");
         }
 
-        if ("O".equalsIgnoreCase(board[0][0])
-                && "O".equalsIgnoreCase(board[0][1])
-                && "O".equalsIgnoreCase(board[0][2])) {
+        if (isUpperHorizontalWonByPlayer("O")) {
             throw new PlayerWinsException("O");
         }
+    }
+
+    private boolean isUpperHorizontalWonByPlayer(String x) {
+        return x.equalsIgnoreCase(board[0][0])
+                && x.equalsIgnoreCase(board[0][1])
+                && x.equalsIgnoreCase(board[0][2]);
     }
 
     private boolean isAlternatePlacingPlayer(String player) {
