@@ -25,6 +25,12 @@ public class TicTactToe {
                 && "X".equalsIgnoreCase(board[0][2])) {
             throw new PlayerWinsException("X");
         }
+
+        if ("O".equalsIgnoreCase(board[0][0])
+                && "O".equalsIgnoreCase(board[0][1])
+                && "O".equalsIgnoreCase(board[0][2])) {
+            throw new PlayerWinsException("O");
+        }
     }
 
     private boolean isAlternatePlacingPlayer(String player) {
