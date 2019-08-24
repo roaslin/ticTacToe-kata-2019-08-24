@@ -47,4 +47,17 @@ public class TicTacToeShould {
         ticTacToe.place("X", 1, 1);
         ticTacToe.place("O", 0, 2);
     }
+
+    @Test(expected = EndGameException.class)
+    public void end_game_when_all_positions_are_placed() {
+        ticTacToe.place("X", 0, 0);
+        ticTacToe.place("O", 0, 1);
+        ticTacToe.place("X", 0, 2);
+        ticTacToe.place("O", 1, 0);
+        ticTacToe.place("X", 1, 1);
+        ticTacToe.place("O", 2, 0);
+        ticTacToe.place("X", 1, 2);
+        ticTacToe.place("O", 2, 2);
+        ticTacToe.place("X", 2, 1);
+    }
 }

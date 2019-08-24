@@ -27,6 +27,23 @@ public class TicTactToe {
         if (isUpperHorizontalWonByPlayer("O")) {
             throw new PlayerWinsException("O");
         }
+
+        if (isGameEnded()) {
+            throw new EndGameException();
+        }
+    }
+
+    private boolean isGameEnded() {
+        boolean isGameEnded = true;
+        for (int horizontalPosition = 0; horizontalPosition < 3; horizontalPosition++) {
+            for (int verticalPosition = 0; verticalPosition < 3; verticalPosition++) {
+                if (board[horizontalPosition][verticalPosition] == null) {
+                    isGameEnded = false;
+                    break;
+                }
+            }
+        }
+        return isGameEnded;
     }
 
     private boolean isUpperHorizontalWonByPlayer(String x) {
